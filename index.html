@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easens cakehouse | Custom Cakes & Desserts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: #fff9f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* ===== Header & Navigation ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ff6b81;
+            font-size: 2rem;
+        }
+        
+        .logo p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b81;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* ===== Hero Section (Attracts Immediate Attention) ===== */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), url('https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            background: #ff6b81;
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #ff4757;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
+        }
+        
+        /* ===== About Section (Builds Trust) ===== */
+        .about {
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            gap: 50px;
+            background: white;
+        }
+        
+        .about-img {
+            flex: 1;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #ff6b81;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        /* ===== Cakes Gallery (Showcases Products) ===== */
+        .cakes {
+            padding: 100px 8%;
+            text-align: center;
+            background: #fff9f5;
+        }
+        
+        .cakes h3 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #ff6b81;
+        }
+        
+        .cake-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .cake-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.4s;
+        }
+        
+        .cake-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cake-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .cake-item h4 {
+            padding: 20px;
+            font-size: 1.3rem;
+            color: #333;
+        }
+        
+        /* ===== Testimonials (Social Proof) ===== */
+        .testimonials {
+            padding: 100px 8%;
+            text-align: center;
+            background: white;
+        }
+        
+        .testimonials h3 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #ff6b81;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: #fff9f5;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .testimonial span {
+            font-weight: bold;
+            color: #ff6b81;
+        }
+        
+        /* ===== Contact Section (Easy Ordering) ===== */
+        .contact {
+            padding: 100px 8%;
+            background: #fff9f5;
+        }
+        
+        .contact h3 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #ff6b81;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
+        
+        .order-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .order-form input,
+        .order-form textarea,
+        .order-form select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .order-form textarea {
+            height: 150px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: #ff6b81;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #ff6b81;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #ff4757;
+        }
+        
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #333;
+            color: white;
+        }
+        
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .about {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== Header & Navigation ===== -->
+    <header>
+        <div class="logo">
+            <h1>Easens cakehouse</h1>
+            <p>Handcrafted Cakes & Desserts</p>
+        </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#cakes">Our Cakes</a></li>
+                <li><a href="#contact">Order Now</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Hero Section ===== -->
+    <section id="home" class="hero">
+            <h2>Delicious Custom Cakes for Every Occasion</h2>
+        <div class="hero-content">
+        <div class="hero-content">
+            <p><marquee bgcolor="jungle green">Made with love, creativity, and the finest ingredients</marquee></p>
+            <a href="#contact" class="btn">Order Yours Today</a>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="cake3.jpg">
+        </div>
+        <div class="about-text">
+            <h3>Our Story</h3>
+            <p>Welcome to Easens cakehouse, where every cake tells a story! Founded in 2015, our bakery has been creating unforgettable desserts for weddings, birthdays, and special events in the community.</p>
+            <p>We use only premium ingredients, from Belgian chocolate to fresh seasonal fruits, ensuring every bite is a moment of pure joy.</p>
+            <p>Whether you need a stunning wedding cake or fun birthday cupcakes, we'll work with you to bring your vision to life!</p>
+        </div>
+    </section>
+
+    <!-- ===== Cakes Gallery ===== -->
+    <section id="cakes" class="cakes">
+        <h3>Our Signature Creations</h3>
+        <div class="cake-gallery">
+            <div class="cake-item">
+                <img src="about.jpg">
+                <h4>Elegant Wedding Cakes</h4>
+            </div>
+            <div class="cake-item">
+                <img src="wedding.jpg">
+                <h4>Fun Birthday Cakes</h4>
+            </div>
+            <div class="cake-item">
+                <img src="birthday.jpg">
+                <h4>Delicious Cupcakes</h4>
+            </div>
+            <div class="cake-item">
+                <img src="cupcake.jpg">
+                <h4>Custom Design Cakes</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="testimonials">
+        <h3>What Our Customers Say</h3>
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <p>"The wedding cake was absolutely stunning! Not only beautiful but delicious too. All our guests were impressed!"</p>
+                <span>- Sarah & Michael, Wedding</span>
+            </div>
+            <div class="testimonial">
+                <p>"My birthday cake was the highlight of the party! The design was perfect, and it tasted amazing."</p>
+                <span>- Edwin Kadu., Birthday</span>
+            </div>
+            <div class="testimonial">
+                <p>"I order cupcakes for my office every month. They're always fresh, creative, and disappear within minutes!"</p>
+                <span>- David R., Corporate Client</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section id="contact" class="contact">
+        <h3>Ready to Order Your Perfect Cake?</h3>
+        <div class="contact-container">
+            <div class="order-form">
+                <h4>send us your request</h4>
+                <p>please click bellow to submit your order</p>
+                <a href="https://forms.gle/RERRPAY86mzH5gbn7">submit order</a>
+                </div>
+          
+            
+            <div class="contact-info">
+                <h4>Other Ways to Reach Us</h4>
+                <p><i class="fas fa-phone"></i> +254716524452</p>
+                <p><i class="fas fa-envelope"></i> orders@easenscakehouse.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +254716524452</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi,Utawala-RDU</p>
+                <p><i class="fas fa-clock"></i> Open: Mon-Sat 9AM-7PM</p>
+                
+                <div class="social-links">
+                    <p>Follow Us for More Sweet Inspirations:</p>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>&copy; 2025 Easens cakehouse. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.toggle('active', i === index);
+            });
+        }
+        
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Form Submission
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your order! We will contact you within 24 hours to confirm details.');
+            this.reset();
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
