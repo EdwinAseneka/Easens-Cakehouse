@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easens cakehouse | Custom Cakes & Desserts</title>
+    <meta name="description" content="We bake joy into every layer to all types of cake that we bake. We do delivery for those within Nairobi with controlled packaging to ensures freshness. Order online or by phone for convenient scheduling. Our bakery located Nairobi-Utawala.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        <title>Swap District Transfers</title>
-<meta name="description" content="we bake joy into every layer to all types of cake that we bake,We do delivery for those within Nairobi with controlled packaging to ensures freshness. Order online or by phone for convenient scheduling.Our bakery located Nairobi-Utawala.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
         /* ===== Global Styles ===== */
         * {
             margin: 0;
@@ -76,7 +75,7 @@
         
         /* ===== Hero Section (Attracts Immediate Attention) ===== */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), url('https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
             height: 90vh;
             display: flex;
             align-items: center;
@@ -392,16 +391,18 @@
 
     <!-- ===== Hero Section ===== -->
     <section id="home" class="hero">
+        <div class="hero-content">
             <h2>Delicious Custom Cakes for Every Occasion</h2>
-        <div class="hero-content">
-        <div class="hero-content">
-            <p><marquee bgcolor="jungle green">Made with love, creativity, and the finest ingredients</marquee></p>
+            <p><marquee>Made with love, creativity, and the finest ingredients</marquee></p>
             <a href="#contact" class="btn">Order Yours Today</a>
         </div>
     </section>
 
     <!-- ===== About Section ===== -->
-  
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="about.jpg" alt="About Easens cakehouse">
+        </div>
         <div class="about-text">
             <h3>Our Story</h3>
             <p>Welcome to Easens cakehouse, where every cake tells a story! Founded in 2015, our bakery has been creating unforgettable desserts for weddings, birthdays, and special events in the community.</p>
@@ -415,19 +416,19 @@
         <h3>Our Signature Creations</h3>
         <div class="cake-gallery">
             <div class="cake-item">
-                <img src="about.jpg">
+                <img src="wedding.jpg" alt="Elegant Wedding Cake">
                 <h4>Elegant Wedding Cakes</h4>
             </div>
             <div class="cake-item">
-                <img src="wedding.jpg">
+                <img src="birthday.jpg" alt="Fun Birthday Cake">
                 <h4>Fun Birthday Cakes</h4>
             </div>
             <div class="cake-item">
-                <img src="birthday.jpg" alt=">
+                <img src="cupcake.jpg" alt="Delicious Cupcakes">
                 <h4>Delicious Cupcakes</h4>
             </div>
             <div class="cake-item">
-                <img src="cupcake.jpg">
+                <img src="custom.jpg" alt="Custom Design Cake">
                 <h4>Custom Design Cakes</h4>
             </div>
         </div>
@@ -443,7 +444,7 @@
             </div>
             <div class="testimonial">
                 <p>"My birthday cake was the highlight of the party! The design was perfect, and it tasted amazing."</p>
-                <span>- Edwin Kadu., Birthday</span>
+                <span>- Edwin Kadu, Birthday</span>
             </div>
             <div class="testimonial">
                 <p>"I order cupcakes for my office every month. They're always fresh, creative, and disappear within minutes!"</p>
@@ -457,18 +458,17 @@
         <h3>Ready to Order Your Perfect Cake?</h3>
         <div class="contact-container">
             <div class="order-form">
-                <h4>send us your request</h4>
-                <p>please click bellow to submit your order</p>
-                <a href="https://forms.gle/RERRPAY86mzH5gbn7">submit order</a>
-                </div>
-          
+                <h4>Send us your request</h4>
+                <p>Please click below to submit your order</p>
+                <a href="https://forms.gle/RERRPAY86mzH5gbn7" class="btn">Submit Order</a>
+            </div>
             
             <div class="contact-info">
                 <h4>Other Ways to Reach Us</h4>
                 <p><i class="fas fa-phone"></i> +254716524452</p>
                 <p><i class="fas fa-envelope"></i> orders@easenscakehouse.com</p>
                 <p><i class="fab fa-whatsapp"></i> WhatsApp: +254716524452</p>
-                <p><i class="fas fa-map-marker-alt"></i> Nairobi,Utawala-RDU</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Utawala-RDU</p>
                 <p><i class="fas fa-clock"></i> Open: Mon-Sat 9AM-7PM</p>
                 
                 <div class="social-links">
@@ -508,26 +508,17 @@
             showTestimonial(currentTestimonial);
         }, 5000);
 
-        // Form Submission
-        document.getElementById('order-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your order! We will contact you within 24 hours to confirm details.');
-            this.reset();
-        });
-
         // Smooth Scrolling for Navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
